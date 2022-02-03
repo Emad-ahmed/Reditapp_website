@@ -1,8 +1,9 @@
 from django.urls import path
-from reditapp.views import HomeView, SignupView, LoginView
+from reditapp.views import HomeView, SignupView, LoginView, forgot_password
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('register/', LoginView.as_view(), name='login'),
-    path('signup/', SignupView.as_view(), name='signup'),
+    path('loginview/', LoginView.as_view(), name='loginview'),
+    path('signupview/', SignupView.as_view(), name='signupview'),
+    path('forgot_password/', forgot_password, name='forgot_password'),
 ]
