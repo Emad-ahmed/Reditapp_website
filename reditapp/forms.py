@@ -35,19 +35,3 @@ class RegistrationForm(forms.ModelForm):
             return email
 
         raise forms.ValidationError('This email address is already in use.')
-
-    def clean_phone(self):
-        phone = self.cleaned_data.get('phone')
-        myphone = str(phone)
-
-        try:
-            match = Registration.objects.get(phone=phone)
-            if(len(myphone) > 11):
-                raise forms.ValidationError(
-                    'This Phone Number  is Not Valid')
-
-        except Registration.DoesNotExist:
-            return phone
-
-        raise forms.ValidationError(
-            'This Phone Number  is Not Valid')

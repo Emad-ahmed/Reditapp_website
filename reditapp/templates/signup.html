@@ -9,9 +9,18 @@
   {{form.error}}
   <form action="" method="POST">
     {% csrf_token %}
-    <div class="form-group">{{form.name.label_tag}} {{form.name}}</div>
-    <div class="form-group">{{form.email.label_tag}} {{form.email}}</div>
-    <div class="form-group">{{form.phone.label_tag}} {{form.phone}}</div>
+    <div class="form-group">
+      {{form.name.label_tag}} {{form.name}}
+      <small> {{form.errors.name}} </small>
+    </div>
+    <div class="form-group">
+      {{form.email.label_tag}} {{form.email}}
+      <small class="text-danger"> {{form.errors.email}} </small>
+    </div>
+    <div class="form-group">
+      {{form.phone.label_tag}} {{form.phone}}
+      <small class="text-danger"> {{form.errors.phone}} </small>
+    </div>
     <div class="form-group">
       {{form.university.label_tag}} {{form.university}}
     </div>
