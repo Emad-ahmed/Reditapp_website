@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
+from django.contrib.auth.hashers import make_password
 from django import forms
 from django.forms import fields, widgets
 from django.core import validators
@@ -21,7 +22,7 @@ class RegistrationForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'departMent': forms.Select(attrs={'class': 'form-control'}),
             'university': forms.Select(attrs={'class': 'form-control'}),
-            'password': forms.TextInput(attrs={'class': 'form-control'}),
+            'password': forms.PasswordInput(attrs={'class': 'form-control'}),
 
         }
 
@@ -37,11 +38,16 @@ class RegistrationForm(forms.ModelForm):
 
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
+        myphone = str(phone)
 
         try:
             match = Registration.objects.get(phone=phone)
+            if(len(myphone) > 11):
+                raise forms.ValidationError(
+                    'This Phone Number  is Not Valid')
+
         except Registration.DoesNotExist:
             return phone
 
         raise forms.ValidationError(
-            'This Phone Number  is already in use.')
+            'This Phone Number  is Not Valid')
