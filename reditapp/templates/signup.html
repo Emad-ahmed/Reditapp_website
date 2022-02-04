@@ -2,8 +2,17 @@
 
 {% block login_title %}{% endblock login_title %} <br />
 
-{% block login_content %}
+{% block login_content %} <br />
 
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+    {{ message }}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
 <div class="sign-in-form active">
   <h1>Sign in to Your Brand</h1>
   {{form.error}}

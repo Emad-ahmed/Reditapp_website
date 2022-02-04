@@ -34,3 +34,10 @@ class Registration(models.Model):
             return True
 
         return False
+
+    @staticmethod
+    def get_user_by_email(email):
+        try:
+            return Registration.objects.get(email=email)
+        except:
+            return False
