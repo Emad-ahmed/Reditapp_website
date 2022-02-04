@@ -39,6 +39,10 @@
     transition: .4s;
 }
 
+.main {
+    height: 100vh;
+}
+
 ul li:hover a {
     padding-left: 50px;
 }
@@ -62,7 +66,7 @@ label #cancel {
 label #btn {
     position: fixed;
     left: 40px;
-    top: 25px;
+    top: 15px;
     font-size: 35px;
     color: white;
     padding: 6px 12px;
@@ -98,16 +102,18 @@ label #cancel {
 /* Home */
 
 .right-side {
-    position: absolute;
+    position: fixed;
     right: 10px;
+    top: 20px;
 }
 
 section {
     background-image: url("Young-person-laptops-technology-computers-shop.jpg");
     /* The image used */
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+}
+
+.mynav {
+    background: #182550;
 }
 
 .dark-mode-btn {
@@ -150,7 +156,7 @@ section {
 }
 
 .dark-mode-on .main {
-    background-color: darkblue;
+    background-color: #182550;
     color: white;
 }
 

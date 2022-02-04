@@ -13,40 +13,46 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <title>Document</title>
   </head>
-  <body class="mybody">
-    <input type="checkbox" id="check" />
-    <label for="check">
-      <i class="fas fa-bars" id="btn"></i>
-      <i class="fas fa-times" id="cancel"></i>
-    </label>
-    <div class="sidebar">
-      <header>MY APP</header>
-      <ul>
-        <li>
-          <a href="#"><i class="fas fa-qrcode"></i>Dashboard</a>
-        </li>
-        <li>
-          <a href="#"><i class="fas fa-link"></i>Shortcut</a>
-        </li>
-        <li>
-          <a href="#"><i class="fas fa-stream"></i>Overview</a>
-        </li>
-        <li>
-          <a href="#"><i class="fas fa-calendar"></i>Events</a>
-        </li>
-        <li>
-          <a href="#"><i class="fas fa-question-circle"></i>About</a>
-        </li>
-        <li>
-          <a href="#"><i class="fas fa-sliders-h"></i>Services</a>
-        </li>
-        <li>
-          <a href="#"><i class="fas fa-envelope"></i>Contact</a>
-        </li>
-      </ul>
-    </div>
+  <body>
+    <nav class="mynav p-4">
+      <input type="checkbox" id="check" />
+      <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+      </label>
 
-    {% block content %} {% endblock content %}
+      <div class="sidebar">
+        <header>MY APP</header>
+        <ul>
+          <li>
+            <a href="#"><i class="fas fa-qrcode"></i>Dashboard</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-link"></i>Shortcut</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-stream"></i>Overview</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-calendar"></i>Events</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-question-circle"></i>About</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-sliders-h"></i>Services</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-envelope"></i>Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="right-side">
+        <a href="#">Logout</a>
+        <a href="#">Logout</a>
+      </div>
+    </nav>
+    <div class="main">{% block content %} {% endblock content %}</div>
     <a href="javascript:;" class="dark-mode-btn">
       <svg
         xmlns="http://www.w3.org/2000/svg"
