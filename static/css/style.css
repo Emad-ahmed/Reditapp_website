@@ -1,7 +1,3 @@
-body {
-    font-family: 'Kufam', cursive;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +11,7 @@ body {
     left: -250px;
     width: 250px;
     height: 100%;
-    background: #042311;
+    background: #182550;
     transition: all .5s ease;
 }
 
@@ -64,6 +60,7 @@ label #cancel {
 }
 
 label #btn {
+    position: fixed;
     left: 40px;
     top: 25px;
     font-size: 35px;
@@ -73,6 +70,7 @@ label #btn {
 }
 
 label #cancel {
+    position: fixed;
     z-index: 1111;
     left: -195px;
     top: 17px;
@@ -96,23 +94,76 @@ label #cancel {
     left: 195px;
 }
 
-section {
-    background-image: url("Young-person-laptops-technology-computers-shop.jpg");
-    /* The image used */
-    background-color: #cccccc;
-    /* Used if the image is unavailable */
-    height: 500px;
-    /* You must set a specified height */
-    background-position: center;
-    /* Center the image */
-    background-repeat: no-repeat;
-    /* Do not repeat the image */
-    background-size: cover;
-}
-
 
 /* Home */
 
 .right-side {
-    float: right;
+    position: absolute;
+    right: 10px;
+}
+
+section {
+    background-image: url("Young-person-laptops-technology-computers-shop.jpg");
+    /* The image used */
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.dark-mode-btn {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 10;
+    background-color: var(--color-white);
+    padding: 0.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border: 2px solid var(--color-mid-gray);
+    border-radius: 50%;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.dark-mode-btn svg {
+    -webkit-filter: invert(67%) sepia(7%) saturate(757%) hue-rotate(182deg) brightness(95%) contrast(88%);
+    filter: invert(67%) sepia(7%) saturate(757%) hue-rotate(182deg) brightness(95%) contrast(88%);
+    width: 16px;
+    height: 16px;
+}
+
+.dark-mode-btn.active {
+    background-color: green;
+    border-color: var(--color-p);
+}
+
+.dark-mode-btn.active svg {
+    -webkit-filter: invert(91%) sepia(31%) saturate(1482%) hue-rotate(328deg) brightness(102%) contrast(101%);
+    filter: invert(91%) sepia(31%) saturate(1482%) hue-rotate(328deg) brightness(102%) contrast(101%);
+}
+
+.dark-mode-on .main {
+    background-color: darkblue;
+    color: white;
+}
+
+.dark-mode-on input {
+    background-color: transparent;
+    border: 1px solid var(--color-mid-gray);
+}
+
+.dark-mode-on .seperator span {
+    background-color: var(--color-dark);
+}
+
+.dark-mode-on button:hover {
+    background-color: var(--color-white);
+    color: var(--color-dark);
 }

@@ -11,7 +11,12 @@
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
   crossorigin="anonymous"
 />
+
 <div class="right-side">
-  <a href="" class="btn btn-danger">Logout</a>
+  <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+  <a href="#">Profile</a>
 </div>
+
+<section class="main"></section>
+
 {% endblock content %} <br />

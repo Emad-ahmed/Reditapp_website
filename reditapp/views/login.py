@@ -41,4 +41,4 @@ def forgot_password(request):
 
 def logout(request):
     request.session.clear()
-    return redirect('login')
+    return redirect('loginview')

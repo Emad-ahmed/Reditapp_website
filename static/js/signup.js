@@ -1,4 +1,5 @@
 $(".dark-mode-btn").click(function() {
-    $(this).toggleClass("active");
+    var b =
+        $(this).toggleClass("active");
     $("body").toggleClass("dark-mode-on");
 });
