@@ -11,7 +11,7 @@
     left: -250px;
     width: 250px;
     height: 100%;
-    background: #182550;
+    background: #1B1212;
     transition: all .5s ease;
 }
 
@@ -37,10 +37,6 @@
     border-top: 1px solid rgba(255, 255, 255, .1);
     border-bottom: 1px solid black;
     transition: .4s;
-}
-
-.main {
-    height: 100vh;
 }
 
 ul li:hover a {
@@ -113,7 +109,7 @@ section {
 }
 
 .mynav {
-    background: #182550;
+    background: #1B1212;
 }
 
 .dark-mode-btn {
@@ -156,8 +152,9 @@ section {
 }
 
 .dark-mode-on .main {
-    background-color: #182550;
+    background-color: #1B1212;
     color: white;
+    height: 100vh;
 }
 
 .dark-mode-on input {
