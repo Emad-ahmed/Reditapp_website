@@ -112,6 +112,17 @@ section {
     background: #1B1212;
 }
 
+.right_container {
+    background-color: #1B1212;
+    height: 100vh;
+}
+
+.right_container a {
+    margin-top: 1.3rem;
+    display: block;
+    text-decoration: none;
+}
+
 .dark-mode-btn {
     position: fixed;
     left: 1rem;
