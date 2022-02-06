@@ -2,8 +2,9 @@
 
 {% block login_title %}{% endblock login_title %} <br />
 
-{% block login_content %}
-
+{% block login_content %} <br />
+{% load static %} <br />
+<link rel="stylesheet" href="{% static 'css/signup.css' %}" />
 <div class="sign-in-form active">
   <h1>Sign in to Your Brand</h1>
   <div class="social-buttons">
