@@ -7,12 +7,12 @@ from reditapp.models.sharequestion import ShareFile
 
 class CSEView(View):
     def get(self, request):
-        return render(request, 'CSE.html')
+
+        return render(request, 'CSE.html', {'myactive': 'active'})
 
 
 class ShowCSEView(View):
     def get(self, request, num):
         n = str(num)
         showcse = ShareFile.objects.filter(departMent="CSE", semister=n)
-
-        return render(request, 'ShowCSE.html', {'showcse': showcse})
+        return render(request, 'ShowCSE.html', {'showcse': showcse, 'myactive': 'active'})

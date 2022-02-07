@@ -413,5 +413,25 @@ button:hover {
     }
 }
 
+.file_a a:hover {
+    color: white;
+}
+
+.sign-up-form-btn {
+    color: #009B77;
+}
+
+.sign-up-form-btn:hover {
+    color: tomato;
+}
+
+.forgot-pass-link {
+    color: tomato;
+}
+
+.forgot-pass-link:hover {
+    color: white;
+}
+
 
 /*# sourceMappingURL=style.css.map */

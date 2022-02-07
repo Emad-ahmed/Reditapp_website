@@ -13,6 +13,7 @@
     height: 100%;
     background: #1B1212;
     transition: all .5s ease;
+    z-index: 100;
 }
 
 .sidebar header {
@@ -67,6 +68,7 @@ label #btn {
     color: white;
     padding: 6px 12px;
     transition: all .5s;
+    z-index: initial;
 }
 
 label #cancel {
@@ -98,9 +100,20 @@ label #cancel {
 /* Home */
 
 .right-side {
-    position: fixed;
+    position: absolute;
     right: 10px;
     top: 20px;
+}
+
+.right-side a {
+    text-decoration: none;
+    margin-left: 1.4rem;
+    background: #FF6F61;
+    padding: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 10px 5px 10px 5px;
+    color: white;
 }
 
 section {
@@ -180,4 +193,28 @@ section {
 .dark-mode-on button:hover {
     background-color: var(--color-white);
     color: var(--color-dark);
+}
+
+.semanquer:hover a {
+    padding-left: 0;
+    color: tomato;
+}
+
+.semanquer a {
+    text-decoration: none;
+    color: black;
+}
+
+.active {
+    background-color: #0a5275;
+    padding: 10px;
+    color: white;
+}
+
+.file_a a:hover {
+    color: rgb(197, 190, 190);
+}
+
+.file_a a {
+    color: rgb(238, 236, 236);
 }

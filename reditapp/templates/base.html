@@ -49,7 +49,7 @@
       </div>
       <div class="right-side">
         <a href="{% url 'logout' %}">Logout</a>
-        <a href="#">Logout</a>
+        <a href="#">Profile</a>
       </div>
     </nav>
 
@@ -58,15 +58,16 @@
         {% block content %} {% endblock content %}
 
         <div class="col-lg-3 right_container">
-          <h1 class="text-center">Your File</h1>
-          <div class="mt-5">
-            <a href="{% url 'cse' %}">Depratment Of CSE</a>
-            <a href="">Depratment Of CSE</a>
+          <h1 class="text-center text-white mt-3">Your File</h1>
+          <div class="mt-5 file_a">
+            <a href="{% url 'cse' %}" class="{{myactive}}">Depratment Of CSE</a>
+            <a href="">Depratment Of EEE</a>
             <a href="">Depratment Of BBA</a>
             <a href="">Depratment Of English</a>
             <a href="">Depratment Of Bangla</a>
             <a href="">Depratment Of Islamic Studies</a>
             <a href="">Depratment Of CSE</a>
+            <a href="">Depratment Of </a>
           </div>
         </div>
       </div>
