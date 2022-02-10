@@ -7,6 +7,7 @@ from django.core import validators
 
 
 from reditapp.models import Registration
+from reditapp.models import UserProfile
 
 
 class RegistrationForm(forms.ModelForm):
@@ -35,3 +36,9 @@ class RegistrationForm(forms.ModelForm):
             return email
 
         raise forms.ValidationError('This email address is already in use.')
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('profile_photo',)

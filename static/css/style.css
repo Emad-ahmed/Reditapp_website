@@ -105,9 +105,10 @@ label #cancel {
     top: 20px;
 }
 
-.right-side a {
+.right-side .logbtn {
     text-decoration: none;
     margin-left: 1.4rem;
+    margin-right: 2rem;
     background: #FF6F61;
     padding: 10px;
     padding-left: 1rem;
@@ -140,7 +141,7 @@ section {
     position: fixed;
     left: 1rem;
     bottom: 1rem;
-    z-index: 10;
+    z-index: 100000;
     background-color: var(--color-white);
     padding: 0.5rem;
     display: -webkit-box;
@@ -217,4 +218,9 @@ section {
 
 .file_a a {
     color: rgb(238, 236, 236);
+}
+
+.imgshow {
+    margin-left: 29%;
+    margin-top: 3%;
 }

@@ -13,81 +13,81 @@
 />
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <div class="col-lg-9">
-  <h1>Department Of Compter Science & Engineering</h1>
+  <h1 class="text-center mb-3">Department Of Compter Science & Engineering</h1>
 
   <ul class="list-group">
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-4"
     >
       <a href="{% url 'showcse' 1 %}">1st Semister</a>
-      <span class="badge bg-primary rounded-pill">14</span>
+      <span class="badge bg-primary rounded-pill">{{one|length}}</span>
     </li>
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
     >
       <a href="{% url 'showcse' 2 %}" class="semanquer"> 2nd Semister </a>
-      <span class="badge bg-primary rounded-pill">2</span>
+      <span class="badge bg-primary rounded-pill">{{two|length}}</span>
     </li>
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
     >
       <a href="{% url 'showcse' 3 %}" class="semanquer"> 3rd Semister </a>
-      <span class="badge bg-primary rounded-pill">1</span>
+      <span class="badge bg-primary rounded-pill">{{three|length}}</span>
     </li>
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
     >
       <a href="{% url 'showcse' 4 %}" class="semanquer"> 4th Semister </a>
-      <span class="badge bg-primary rounded-pill">1</span>
+      <span class="badge bg-primary rounded-pill">{{four|length}}</span>
     </li>
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
     >
       <a href="{% url 'showcse' 5 %}"> 5th Semister </a>
-      <span class="badge bg-primary rounded-pill">1</span>
+      <span class="badge bg-primary rounded-pill">{{five|length}}</span>
     </li>
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
     >
       <a href="{% url 'showcse' 6 %}">6th Semister</a>
-      <span class="badge bg-primary rounded-pill">1</span>
+      <span class="badge bg-primary rounded-pill">{{six|length}}</span>
     </li>
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
     >
       <a href="{% url 'showcse' 7 %}">7th Semister</a>
-      <span class="badge bg-primary rounded-pill">1</span>
+      <span class="badge bg-primary rounded-pill">{{seven|length}}</span>
     </li>
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
     >
       <a href="{% url 'showcse' 8 %}" class="semanquer">8th Semister</a>
-      <span class="badge bg-primary rounded-pill">1</span>
+      <span class="badge bg-primary rounded-pill">{{eight|length}}</span>
     </li>
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
     >
       <a href="{% url 'showcse' 9 %}" class="semanquer">9th Semister</a>
-      <span class="badge bg-primary rounded-pill">1</span>
+      <span class="badge bg-primary rounded-pill">{{nine|length}}</span>
     </li>
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
     >
       <a href="{% url 'showcse' 10 %}" class="semanquer">10th Semister</a>
-      <span class="badge bg-primary rounded-pill">1</span>
+      <span class="badge bg-primary rounded-pill">{{ten|length}}</span>
     </li>
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
     >
       <a href="{% url 'showcse' 11 %}" class="semanquer">11th Semister</a>
-      <span class="badge bg-primary rounded-pill">1</span>
+      <span class="badge bg-primary rounded-pill">{{eleven|length}}</span>
     </li>
 
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
     >
       <a href="{% url 'showcse' 12 %}" class="semanquer">12th Semister</a>
-      <span class="badge bg-primary rounded-pill">1</span>
+      <span class="badge bg-primary rounded-pill">{{tweleve|length}}</span>
     </li>
   </ul>
 </div>

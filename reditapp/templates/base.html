@@ -25,7 +25,7 @@
         <header>MY APP</header>
         <ul>
           <li>
-            <a href="/"><i class="fas fa-qrcode"></i>Dashboard</a>
+            <a href="/"><i class="fas fa-qrcode"></i>Home</a>
           </li>
           <li>
             <a href="#"><i class="fas fa-link"></i>Shortcut</a>
@@ -48,8 +48,18 @@
         </ul>
       </div>
       <div class="right-side">
-        <a href="{% url 'logout' %}">Logout</a>
-        <a href="#">Profile</a>
+        <a class="logbtn" href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'profile'  %}"
+          ><img
+            src="{{userprofile.profile_photo.url}}"
+            alt=""
+            style="
+              width: 40px;
+              height: 40px;
+              border-radius: 100%;
+              object-fit: cover;
+            "
+        /></a>
       </div>
     </nav>
 
