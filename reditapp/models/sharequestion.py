@@ -9,6 +9,13 @@ choice_department = (
     ("ISLAMIC STUDIES", "ISLAMIC STUDIES"),
     ("EEE", "EEE"),
 )
+choice_versity = (
+    ("Leading", "Leading"),
+    ("Dhaka University", "Dhaka University"),
+    ("North South", "North South"),
+    ("Rajshahi", "Rajshahi"),
+
+)
 
 choice_semsiter = (
     ("1", "1"),
@@ -25,13 +32,18 @@ choice_semsiter = (
     ("12", "12"),
 )
 
+
 class ShareFile(models.Model):
     subject_name = models.CharField(max_length=120)
     subject_code = models.CharField(max_length=120)
     departMent = models.CharField(
         max_length=200, choices=choice_department, default="CSE")
+    university = models.CharField(
+        max_length=200, choices=choice_versity, default="Leading")
     semister = models.CharField(
         max_length=200, choices=choice_semsiter, default="1")
+
     question_photo = models.ImageField(upload_to='images/', blank=True)
     question_file = models.FileField(upload_to='documents/', blank=True)
+    isthattrue = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True, blank=True)

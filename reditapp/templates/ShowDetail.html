@@ -15,6 +15,7 @@
   <h1 class="text-center">{{mysubject.subject_name}}</h1>
   <p class="text-center">{{mysubject.subject_code}}</p>
   <div class="imgshow">
+    {% if question_photo %}
     <img
       src="{{ mysubject.question_photo.url }}"
       class="img-responsive"
@@ -26,6 +27,7 @@
         margin-right: 10px;
       "
     />
+    {% endif %}
   </div>
 </div>
 

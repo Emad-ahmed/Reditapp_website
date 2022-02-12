@@ -1,5 +1,6 @@
 from email import message
 import imp
+from django.http import HttpResponse
 from django.shortcuts import render, HttpResponseRedirect
 from django.views import View
 from reditapp.forms import RegistrationForm, ProfileForm
@@ -9,6 +10,7 @@ from reditapp.models.registration import Registration
 from reditapp.models.userprofile import UserProfile
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView
+from django.contrib.auth.models import User
 
 
 class SignupView(View):
@@ -33,16 +35,24 @@ class SignupView(View):
 
 class ProfileView(View):
     def get(self, request):
-        myuser = request.session.get('customer')
-        myuserdata = Registration.objects.get(pk=myuser)
-        fm = RegistrationForm(instance=myuserdata)
-        profileform = ProfileForm()
-
         try:
-            userprofile = UserProfile.objects.get(user=myuserdata)
-
-            return render(request, 'profile.html', {'form': fm, 'profileform': profileform, "userprofile": userprofile})
+            myuser = request.session.get('customer')
+            n = request.user.is_superuser
+            if not n:
+                myuserdata = Registration.objects.get(pk=myuser)
+                fm = RegistrationForm(instance=myuserdata)
+                profileform = ProfileForm()
+                userprofile = UserProfile.objects.get(user=myuserdata)
+                return render(request, 'profile.html', {'form': fm, 'profileform': profileform, "userprofile": userprofile})
+            else:
+                m = request.user.email
+                mymail = User.objects.get(email=m)
+                return HttpResponse("You Are Admin")
         except:
+            myuser = request.session.get('customer')
+            myuserdata = Registration.objects.get(pk=myuser)
+            fm = RegistrationForm(instance=myuserdata)
+            profileform = ProfileForm()
             return render(request, 'profile.html', {'form': fm, 'profileform': profileform})
 
     def post(self, request):

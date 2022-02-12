@@ -18,7 +18,7 @@
   <h1>Show CSE</h1>
 
   <ul class="list-group">
-    {% for showsubject in showcse %}
+    {% for showsubject in showcse %} {% if showsubject.isthattrue == True %}
     <li
       class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
     >
@@ -26,7 +26,7 @@
         {{showsubject.subject_name}}
       </a>
     </li>
-    {% endfor %}
+    {% endif %} {% endfor %}
   </ul>
 </div>
 {% endblock content %} <br />

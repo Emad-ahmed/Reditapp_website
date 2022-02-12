@@ -6,7 +6,7 @@ from django.forms import fields, widgets
 from django.core import validators
 
 
-from reditapp.models import Registration
+from reditapp.models import Registration, ShareFile
 from reditapp.models import UserProfile
 
 
@@ -42,3 +42,23 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ('profile_photo',)
+
+
+class ShareFileForm(forms.ModelForm):
+    class Meta:
+        model = ShareFile
+        fields = ('subject_name', 'subject_code', 'departMent', 'university',
+                  'semister', 'question_photo', 'question_file')
+        labels = {'name': 'Full Name', 'email': "Email", 'departMent': "Department",
+                  }
+        widgets = {
+            'subject_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'subject_code': forms.TextInput(attrs={'class': 'form-control'}),
+            'subject_code': forms.TextInput(attrs={'class': 'form-control'}),
+            'departMent': forms.Select(attrs={'class': 'form-control'}),
+            'university': forms.Select(attrs={'class': 'form-control'}),
+            'semister': forms.Select(attrs={'class': 'form-control'}),
+            'question_photo': forms.FileInput(attrs={'class': 'form-control'}),
+            'question_file': forms.FileInput(attrs={'class': 'form-control'}),
+
+        }
