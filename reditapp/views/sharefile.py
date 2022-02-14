@@ -15,9 +15,8 @@ class ShareFileView(View):
         return render(request, 'sharefile.html', {'share': myshare})
 
     def post(self, request):
-        myshare = ShareFileForm(request.POST)
+        myshare = ShareFileForm(request.POST, request.FILES)
         if myshare.is_valid():
-
             myshare.save()
             print(myshare)
             myid = myshare.instance.id
