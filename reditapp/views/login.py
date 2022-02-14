@@ -39,6 +39,8 @@ def forgot_password(request):
     return render(request, 'forgot_password.html')
 
 
+
+
 def logout(request):
     request.session.clear()
     return redirect('loginview')
