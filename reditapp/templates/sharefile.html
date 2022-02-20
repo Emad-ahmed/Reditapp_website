@@ -24,15 +24,24 @@
   crossorigin="anonymous"
 ></script>
 
+<style>
+  .sharefiletext
+  {
+    margin-top:5.5rem;
+    
+  }
+</style>
+
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
-  <h1 class="m-auto">Share File</h1>
+  
   <div class="col-lg-9">
-    <form action="" method="POST">
+    <h1 class="sharefiletext text-center  mb-2">Share File</h1>
+    <form action="" method="POST" class="formprofile w-75">
         {% csrf_token %}
         {% for fm in share %} {{fm.label_tag}} {{fm}} {%endfor%}
 
-        <button type="Submit" class="btn btn-outline-success mt-4">Add File</button>
+        <button type="Submit" class="btn btn-success mt-4 w-100">Add File</button>
     </form>
   </div>
 

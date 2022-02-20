@@ -60,3 +60,8 @@ def likepost(request, id):
             post.likes.add(myuserdata)
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+class ChangePasswordView(View):
+    def get(self, request):
+        return render(request, "change_password.html")

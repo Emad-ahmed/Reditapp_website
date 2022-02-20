@@ -13,3 +13,16 @@ function myFunction() {
         x.type = "password";
     }
 }
+
+
+function check_pass() {
+    let newp = $("#newpwd").val();
+    let cp = $("#cpwd").val();
+    if (newp == cp) {
+        $("#newpwd").css("border", "1px solid green");
+        $("#cpwd").css("border", "1px solid green");
+    } else {
+        $("#newpwd").css("border", "1px solid red");
+        $("#cpwd").css("border", "1px solid red");
+    }
+}

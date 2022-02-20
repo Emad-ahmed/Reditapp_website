@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <div class="col-lg-9 profileview">
   <h1 class="text-center mb-3">Profile</h1>
+  <a href="{% url 'change_password' %}">Change</a>
 
   <!-- Button trigger modal -->
   {% if not userprofile %}
