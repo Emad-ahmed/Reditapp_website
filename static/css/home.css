@@ -145,3 +145,11 @@
 .social-buttons span i {
     padding-right: 4px;
 }
+
+.mypost form {
+    margin-top: 7rem;
+}
+
+.co-logo {
+    border-radius: 50%;
+}

@@ -127,8 +127,10 @@ section {
 }
 
 .right_container {
+    position: fixed;
     background-color: #1B1212;
     height: 100vh;
+    right: 0;
 }
 
 .right_container a {

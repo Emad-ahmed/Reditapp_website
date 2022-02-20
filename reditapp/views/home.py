@@ -3,6 +3,7 @@ import imp
 from django.shortcuts import get_object_or_404
 from turtle import pos
 from django.shortcuts import redirect, render
+from django.template import Origin
 from django.urls import reverse_lazy
 from django.views import View
 from reditapp.forms import RegistrationForm, PostForm
@@ -14,16 +15,21 @@ from django.views.generic import DetailView
 
 
 class HomeView(View):
+
     formclass = PostForm
-    mypost = Post.objects.filter().order_by("-date")[:10]
+    mypost = Post.objects.filter().order_by("-date")
 
     def get(self, request, *args, **kwargs):
 
         form = self.formclass()
         myuser = request.session.get('customer')
         myuserdata = Registration.objects.get(pk=myuser)
+        try:
+            userprofile = UserProfile.objects.get(user=myuserdata)
+        except:
+            userprofile = None
 
-        return render(request, 'home.html', {'fm': form,  'myuserdata': myuserdata, 'mypost':  self.mypost, 'myuser': myuserdata})
+        return render(request, 'home.html', {'fm': form,  'myuserdata': myuserdata, 'mypost':  self.mypost, 'myuser': myuserdata, "userprofile": userprofile})
 
     def post(self, request, *args, **kwargs):
         mypost = Post.objects.filter().order_by("-date")

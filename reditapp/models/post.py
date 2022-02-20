@@ -1,12 +1,15 @@
 from distutils.command.upload import upload
+from email.policy import default
 from pyexpat import model
 from django.db import models
-from reditapp.models import Registration
+from reditapp.models import Registration, UserProfile
 from datetime import datetime
 
 
 class Post(models.Model):
     user = models.ForeignKey(Registration, on_delete=models.CASCADE)
+    myprofile = models.ForeignKey(
+        UserProfile, on_delete=models.CASCADE, blank=True, null=True)
     mypost = models.TextField(blank=True)
     postimage = models.ImageField(
         upload_to="uploadpost/", blank=True, null=True)
