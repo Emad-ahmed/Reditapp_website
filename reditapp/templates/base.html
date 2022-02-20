@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <title>Document</title>
+    <style></style>
   </head>
   <body>
     <nav class="mynav p-4 fixed-top">
@@ -63,17 +64,24 @@
               object-fit: cover;
             "
         /></a>
+        {% else %}
+        <a href="{% url 'profile'  %}"
+          ><i
+            class="fa fa-user-plus fa-2x text-white me-5"
+            aria-hidden="true"
+          ></i
+        ></a>
         {% endif %}
       </div>
     </nav>
 
-    <div class="container-fluid main ps-5">
+    <div class="container-fluid main">
       <div class="row">
         {% block content %} {% endblock content %}
 
         <div class="col-lg-3 right_container">
           <h1 class="text-center text-white mt-3">Your File</h1>
-          <div class="mt-5 file_a">
+          <div class="mt-5 file_a ms-4">
             <a href="{% url 'cse' %}" class="{{myactive}}">Depratment Of CSE</a>
             <a href="">Depratment Of EEE</a>
             <a href="">Depratment Of BBA</a>

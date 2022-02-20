@@ -8,6 +8,11 @@
 
 {% block content %}
 <style>
+  .newhomebody {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+  }
   .imageuploaduser > input {
     visibility: hidden;
     width: 0;
@@ -17,6 +22,10 @@
     visibility: hidden;
     width: 0;
     height: 0;
+  }
+  textarea {
+    height: 8rem;
+    width: 10rem;
   }
 </style>
 <link
@@ -32,22 +41,25 @@
 
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 
-<div class="col-lg-9">
+<div class="col-lg-9 newhomebody">
   <div class="container mypost">
     <form action="" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
-      <div class="mb-3 mt-5">
+      <div class="mt-5">
         {{fm.mypost}}
         <div class="imageuploaduser">{{fm.postimage}}</div>
         <div class="fileuploaduser">{{fm.postfile}}</div>
       </div>
-      <div class="form-inline">
+      <div class="form-inline ms-5 mt-0 pt-0">
         <button class="btn btn-info" type="submit">Post</button>
         <label for="id_postimage">
-          <i class="fa fa-file-image-o me-4 ms-5" aria-hidden="true"></i>
+          <i
+            class="fa fa-file-image-o me-4 ms-5 mt-1 text-white"
+            aria-hidden="true"
+          ></i>
         </label>
         <label for="id_postfile">
-          <i class="fa fa-file" aria-hidden="true"></i>
+          <i class="fa fa-file text-white" aria-hidden="true"></i>
         </label>
       </div>
     </form>
@@ -55,36 +67,25 @@
   {% comment %} Card Start {% endcomment %} <br />
   {% for newuser in mypost %}
   <div class="f-card">
-    <div class="header">
+    <div class="header ps-5">
       <div class="options"><i class="fa fa-chevron-down"></i></div>
       {% if newuser.myprofile %}
-      <img
-        class="co-logo border-radius"
-        src="{{newuser.myprofile.profile_photo.url}}"
-      />
+      <img class="co-logo" src="{{newuser.myprofile.profile_photo.url}}" />
       {% endif %}
 
-      <div class="co-name"><a href="#">{{newuser.user.name}}</a></div>
+      <div class="co-name">
+        <a href="#" class="text-white">{{newuser.user.name}}</a>
+      </div>
       <div class="time"><a href="#">2hrs</a> · <i class="fa fa-globe"></i></div>
     </div>
     <div class="content">
-      <p>{{newuser.mypost}} See More</p>
+      <p class="text-white">{{newuser.mypost}}</p>
     </div>
 
     <div class="reference">
       {% if newuser.postimage %}
       <img class="reference-thumb" src="{{newuser.postimage.url}}" />
       {% endif %}
-      <div class="reference-content">
-        <div class="reference-title">
-          A quick and simple image placeholder service. | PLACEHOLDER.it
-        </div>
-        <div class="reference-subtitle">
-          How does it work? Just put your image size after our URL and you'll
-          get a placeholder.
-        </div>
-        <div class="reference-font">placeholder.it</div>
-      </div>
     </div>
 
     <div class="social">
@@ -93,17 +94,21 @@
         <form action="/likepost/{{newuser.id}}/" method="POST">
           {% csrf_token %} {% if myuserdata in newuser.likes.all %}
           <span
-            ><button type="submit" class="btn btn-warning">
-              Unliked {{newuser.total_likes}}
+            ><button type="submit" class="newbtnunlike">
+              <i class="fa fa-thumbs-up" aria-hidden="true"></i> like
+              {{newuser.total_likes}}
             </button>
             {% else %}
-            <button type="submit" class="btn btn-primary">
-              liked {{newuser.total_likes}}
+            <button type="submit" class="newbtnlike">
+              <i class="fa fa-thumbs-up" aria-hidden="true"></i> like
+              {{newuser.total_likes}}
             </button>
 
             {% endif %}
-            <i class="fa fa-comment ms-3"></i>Comment
-            <i class="fa fa-share ms-3"></i>Share
+            <i class="fa fa-comment ms-3 mt-3 fa-1x"></i
+            ><span style="font-size: 1rem" class="spancomment"> Comment</span>
+            <i class="fa fa-share ms-3 mt-3 fa-1x"></i
+            ><span style="font-size: 1rem" class="spanshare"> Share</span>
           </span>
         </form>
       </div>

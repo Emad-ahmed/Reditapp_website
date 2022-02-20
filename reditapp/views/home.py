@@ -23,7 +23,11 @@ class HomeView(View):
 
         form = self.formclass()
         myuser = request.session.get('customer')
-        myuserdata = Registration.objects.get(pk=myuser)
+        try:
+            myuserdata = Registration.objects.get(pk=myuser)
+        except:
+            myuserdata = None
+
         try:
             userprofile = UserProfile.objects.get(user=myuserdata)
         except:
@@ -36,9 +40,11 @@ class HomeView(View):
         form = PostForm(request.POST, request.FILES)
         n = request.session.get('customer')
         myuser = Registration.objects.get(id=n)
+        userprofile = UserProfile.objects.get(user=myuser)
         if form.is_valid():
             obj = form.save(commit=False)
             obj.user = myuser
+            obj.myprofile = userprofile
             obj.save()
         return render(request, "home.html", {'fm': self.formclass(), 'mypost':  mypost})
 

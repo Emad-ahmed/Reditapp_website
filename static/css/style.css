@@ -123,13 +123,13 @@ section {
 }
 
 .mynav {
-    background: #1B1212;
+    background: #131313;
 }
 
 .right_container {
     position: fixed;
-    background-color: #1B1212;
-    height: 100vh;
+    background-color: #131313;
+    height: 100%;
     right: 0;
 }
 
@@ -225,4 +225,34 @@ section {
 .imgshow {
     margin-left: 29%;
     margin-top: 3%;
+}
+
+.newshowcse {
+    margin-top: 6rem;
+}
+
+.de {
+    margin-top: 5rem;
+}
+
+.profileview {
+    margin-top: 5rem;
+}
+
+.formprofile {
+    width: 38rem;
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+    padding: 3rem;
+    margin: auto;
+}
+
+.formprofile label {
+    color: white;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.addprofile {
+    text-align: center;
 }

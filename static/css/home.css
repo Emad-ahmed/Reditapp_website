@@ -1,11 +1,13 @@
 .f-card {
-    background-color: white;
+    background-color: #090909;
     /*height:400px;*/
-    width: 40rem;
+    width: 35rem;
+    margin-left: 4rem;
     border: 1px solid #d0d1d5;
     border-radius: 3px;
     margin-bottom: 10px;
     padding: 12px;
+    margin-top: 3rem;
     box-shadow: 0 0 5px rgba(0, 0, 0, .30);
     /* Not original, just a test */
 }
@@ -18,16 +20,16 @@
     /*display:block;*/
     float: left;
     margin-right: 8px;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 .co-name>a {
     font-family: Helvetica;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: bolder;
     line-height: 1.38;
-    color: #365899;
+    color: white;
     text-decoration: none;
     margin-bottom: 2px;
 }
@@ -152,4 +154,50 @@
 
 .co-logo {
     border-radius: 50%;
+}
+
+.newbtnlike {
+    border: none;
+    font-size: 1rem;
+    color: white;
+    background: #090909;
+}
+
+.newbtnunlike {
+    border: none;
+    color: tomato;
+    font-size: 1rem;
+    background: #090909;
+}
+
+.fa-comment {
+    color: white;
+}
+
+.fa-share {
+    color: white;
+}
+
+.spancomment {
+    color: white;
+}
+
+.spanshare {
+    color: white;
+}
+
+.showdetails {
+    margin-top: 5rem;
+}
+
+.fa-file-image-o {
+    background: #FF446E;
+    font-size: 2rem;
+    padding: 0.3rem;
+}
+
+.fa-file {
+    background: #eeb90a;
+    font-size: 2rem;
+    padding: 0.3rem;
 }

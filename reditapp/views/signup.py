@@ -64,10 +64,9 @@ class ProfileView(View):
             phone = request.POST.get("phone")
             university = request.POST.get("university")
             departMent = request.POST.get("departMent")
-            password = request.POST.get("name")
 
             fm = Registration.objects.filter(id=myuser).update(name=name, email=email, phone=phone,
-                                                               university=university, departMent=departMent, password=password)
+                                                               university=university, departMent=departMent)
         elif 'profile' in request.POST:
             if len(request.FILES) != 0:
                 profile_photo = request.FILES['profile_photo']

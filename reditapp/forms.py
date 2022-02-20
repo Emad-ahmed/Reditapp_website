@@ -70,7 +70,7 @@ class PostForm(forms.ModelForm):
         fields = ('mypost', 'postimage', 'postfile')
 
         widgets = {
-            'mypost': forms.Textarea(attrs={'class': 'form-control'}),
+            'mypost': forms.Textarea(attrs={'class': 'form-control w-75 ms-5', 'placeholder': 'Whats In Your Mind?'}),
             'postimage': forms.FileInput(attrs={'class': 'form-control'}),
             'postfile': forms.FileInput(attrs={'class': 'form-control'}),
         }
