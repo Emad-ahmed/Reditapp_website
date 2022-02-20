@@ -6,7 +6,7 @@ from django.forms import fields, widgets
 from django.core import validators
 
 
-from reditapp.models import Registration, ShareFile
+from reditapp.models import Registration, ShareFile, Post
 from reditapp.models import UserProfile
 
 
@@ -61,4 +61,16 @@ class ShareFileForm(forms.ModelForm):
             'question_photo': forms.FileInput(attrs={'class': 'form-control'}),
             'question_file': forms.FileInput(attrs={'class': 'form-control'}),
 
+        }
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('mypost', 'postimage', 'postfile')
+
+        widgets = {
+            'mypost': forms.Textarea(attrs={'class': 'form-control'}),
+            'postimage': forms.FileInput(attrs={'class': 'form-control'}),
+            'postfile': forms.FileInput(attrs={'class': 'form-control'}),
         }

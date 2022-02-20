@@ -51,6 +51,7 @@
       </div>
       <div class="right-side">
         <a class="logbtn" href="{% url 'logout' %}">Logout</a>
+        {% if userprofile %}
         <a href="{% url 'profile'  %}"
           ><img
             src="{{userprofile.profile_photo.url}}"
@@ -62,6 +63,7 @@
               object-fit: cover;
             "
         /></a>
+        {% endif %}
       </div>
     </nav>
 

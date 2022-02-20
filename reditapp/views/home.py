@@ -1,24 +1,50 @@
+from django.http import HttpResponseRedirect
 import imp
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404
+from turtle import pos
+from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from django.views import View
-from reditapp.forms import RegistrationForm
-from reditapp.models import UserProfile, Registration
+from reditapp.forms import RegistrationForm, PostForm
+from reditapp.models import UserProfile, Registration, Post
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from reditapp.models import Post
+from django.views.generic import DetailView
 
 
 class HomeView(View):
-    def get(self, request):
-        try:
-            myuser = request.session.get('customer')
-            myuserdata = Registration.objects.get(pk=myuser)
-            n = request.user.is_superuser
-            if not n:
-                userprofile = UserProfile.objects.get(user=myuserdata)
-                return render(request, 'home.html', {"userprofile": userprofile})
-            else:
-                m = request.user.email
-                mymail = User.objects.get(email=m)
-                return render(request, 'home.html')
-        except:
-            return render(request, 'home.html')
+    formclass = PostForm
+    mypost = Post.objects.filter().order_by("-date")[:10]
+
+    def get(self, request, *args, **kwargs):
+
+        form = self.formclass()
+        myuser = request.session.get('customer')
+        myuserdata = Registration.objects.get(pk=myuser)
+
+        return render(request, 'home.html', {'fm': form,  'myuserdata': myuserdata, 'mypost':  self.mypost, 'myuser': myuserdata})
+
+    def post(self, request, *args, **kwargs):
+        mypost = Post.objects.filter().order_by("-date")
+        form = PostForm(request.POST, request.FILES)
+        n = request.session.get('customer')
+        myuser = Registration.objects.get(id=n)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.user = myuser
+            obj.save()
+        return render(request, "home.html", {'fm': self.formclass(), 'mypost':  mypost})
+
+
+def likepost(request, id):
+    myuser = request.session.get('customer')
+    myuserdata = Registration.objects.get(pk=myuser)
+    if request.method == "POST":
+        post = Post.objects.get(id=id)
+        if post.likes.filter(id=myuserdata.id).exists():
+            post.likes.remove(myuserdata)
+        else:
+            post.likes.add(myuserdata)
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

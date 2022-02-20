@@ -1,4 +1,5 @@
-from reditapp.views.home import HomeView
+from reditapp.views.home import HomeView, likepost
+
 
 from reditapp.views.signup import SignupView, ProfileView
 from reditapp.views.login import LoginView, logout
