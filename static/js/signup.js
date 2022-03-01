@@ -21,8 +21,12 @@ function check_pass() {
     if (newp == cp) {
         $("#newpwd").css("border", "1px solid green");
         $("#cpwd").css("border", "1px solid green");
+        $('#sbbtn').removeAttr("disabled");
+
     } else {
         $("#newpwd").css("border", "1px solid red");
         $("#cpwd").css("border", "1px solid red");
+        $('#sbbtn').attr("disabled", "disabled");
+
     }
 }

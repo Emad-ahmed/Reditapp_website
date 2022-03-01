@@ -1,3 +1,4 @@
+from django.contrib.auth.hashers import check_password
 from email import message
 import imp
 from django.http import HttpResponse
@@ -39,7 +40,10 @@ class ProfileView(View):
             myuser = request.session.get('customer')
             n = request.user.is_superuser
             if not n:
-                myuserdata = Registration.objects.get(pk=myuser)
+                try:
+                    myuserdata = Registration.objects.get(pk=myuser)
+                except:
+                    myuserdata = None
                 fm = RegistrationForm(instance=myuserdata)
                 profileform = ProfileForm()
                 userprofile = UserProfile.objects.get(user=myuserdata)
@@ -76,3 +80,25 @@ class ProfileView(View):
             profileform.save()
 
         return HttpResponseRedirect(reverse_lazy('profile'))
+
+
+def change_password(request):
+    if request.method == "POST":
+        old_password = request.POST.get("oldpassword")
+        new_pass = request.POST.get("newpassword")
+
+        print(old_password)
+
+        myuser = request.session.get('customer')
+        myuserdata = Registration.objects.get(pk=myuser)
+        print(myuserdata.password)
+        name = check_password(old_password, myuserdata.password)
+        n = make_password(new_pass)
+        if name:
+            reg = Registration.objects.filter(
+                id=myuserdata.id).update(password=n)
+
+        else:
+            return HttpResponse("Old Password Not Match")
+
+    return render(request, "change_password.html")

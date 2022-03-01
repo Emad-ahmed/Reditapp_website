@@ -1,5 +1,5 @@
 from django.urls import path
-from reditapp.views import CSE, HomeView, SignupView, LoginView, forgot_password, logout, CSEView, ShowCSEView, ShowDetailView, ProfileView, ShareFileView, likepost, ChangePasswordView
+from reditapp.views import CSE, HomeView, SignupView, LoginView, forgot_password, logout, CSEView, ShowCSEView, ShowDetailView, ProfileView, ShareFileView, likepost, ChangePasswordView, change_password
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
@@ -13,6 +13,7 @@ urlpatterns = [
     path('showcse/<int:num>/', ShowCSEView.as_view(), name='showcse'),
     path('forgot_password/', forgot_password, name='forgot_password'),
     path('logout', logout, name="logout"),
+    path('change_password', change_password, name="change_password"),
     path('likepost/<int:id>/', likepost, name="likepost"),
 
 ]

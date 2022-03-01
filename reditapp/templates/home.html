@@ -27,6 +27,14 @@
     height: 8rem;
     width: 10rem;
   }
+  .postprofile {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    position: relative;
+    top: 12.5rem;
+    left: 1rem;
+  }
 </style>
 <link
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -43,7 +51,17 @@
 
 <div class="col-lg-9 newhomebody">
   <div class="container mypost">
-    <form action="" method="POST" enctype="multipart/form-data">
+    {% if userprofile %}
+    <img src="{{userprofile.profile_photo.url}}" alt="" class="postprofile" />
+    {% else %}
+    <img src="" alt="" class="postprofile" all="{{userprofile.user}}" />
+    {% endif %}
+    <form
+      action=""
+      method="POST"
+      enctype="multipart/form-data"
+      class="w-75 h-50 ms-5"
+    >
       {% csrf_token %}
       <div class="mt-5">
         {{fm.mypost}}
@@ -71,6 +89,8 @@
       <div class="options"><i class="fa fa-chevron-down"></i></div>
       {% if newuser.myprofile %}
       <img class="co-logo" src="{{newuser.myprofile.profile_photo.url}}" />
+      {% else %}
+      <img class="co-logo" src="" alt="{{newuser.user.name}}" />
       {% endif %}
 
       <div class="co-name">

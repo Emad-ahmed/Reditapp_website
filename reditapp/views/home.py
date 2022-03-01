@@ -1,3 +1,4 @@
+from tkinter.messagebox import NO
 from django.http import HttpResponseRedirect
 import imp
 from django.shortcuts import get_object_or_404
@@ -40,16 +41,21 @@ class HomeView(View):
         form = PostForm(request.POST, request.FILES)
         n = request.session.get('customer')
         myuser = Registration.objects.get(id=n)
-        userprofile = UserProfile.objects.get(user=myuser)
+        try:
+            userprofile = UserProfile.objects.get(user=myuser)
+        except:
+            userprofile = None
         if form.is_valid():
             obj = form.save(commit=False)
             obj.user = myuser
-            obj.myprofile = userprofile
+            if userprofile:
+                obj.myprofile = userprofile
             obj.save()
         return render(request, "home.html", {'fm': self.formclass(), 'mypost':  mypost})
 
 
 def likepost(request, id):
+    
     myuser = request.session.get('customer')
     myuserdata = Registration.objects.get(pk=myuser)
     if request.method == "POST":
