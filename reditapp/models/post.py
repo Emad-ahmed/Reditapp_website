@@ -16,7 +16,6 @@ class Post(models.Model):
     postfile = models.FileField(upload_to="uploadfile/", blank=True, null=True)
     likes = models.ManyToManyField(Registration, related_name="post_likes")
     views = models.ManyToManyField(Registration, related_name="post_views")
-    date = models.DateTimeField(default=datetime.now, blank=True)
 
     def total_likes(self):
         return self.likes.count()

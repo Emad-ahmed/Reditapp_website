@@ -46,7 +46,10 @@ class ProfileView(View):
                     myuserdata = None
                 fm = RegistrationForm(instance=myuserdata)
                 profileform = ProfileForm()
-                userprofile = UserProfile.objects.get(user=myuserdata)
+                try:
+                    userprofile = UserProfile.objects.get(user=myuserdata)
+                except:
+                    userprofile = None
                 return render(request, 'profile.html', {'form': fm, 'profileform': profileform, "userprofile": userprofile})
             else:
                 m = request.user.email
@@ -83,12 +86,12 @@ class ProfileView(View):
 
 
 def change_password(request):
+    myuser = request.session.get('customer')
+    myuserdata = Registration.objects.get(pk=myuser)
     if request.method == "POST":
         old_password = request.POST.get("oldpassword")
         new_pass = request.POST.get("newpassword")
-
         print(old_password)
-
         myuser = request.session.get('customer')
         myuserdata = Registration.objects.get(pk=myuser)
         print(myuserdata.password)
@@ -101,4 +104,4 @@ def change_password(request):
         else:
             return HttpResponse("Old Password Not Match")
 
-    return render(request, "change_password.html")
+    return render(request, "change_password.html", {"myuserdata": myuserdata})

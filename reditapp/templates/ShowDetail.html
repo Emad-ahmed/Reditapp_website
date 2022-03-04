@@ -17,21 +17,15 @@
 <div class="col-lg-9 showdetails">
   <h1 class="text-center">{{mysubject.subject_name}}</h1>
   <p class="text-center">{{mysubject.subject_code}}</p>
+  {% if mysubject.question_photo %}
   <div class="imgshow">
-    {% if question_photo %}
     <img
-      src="{{ mysubject.question_photo.url }}"
+      src="{{mysubject.question_photo.url}}"
       class="img-responsive"
-      style="
-        width: 400px;
-        height: 400px;
-        object-fit: cover;
-        float: left;
-        margin-right: 10px;
-      "
+      style="width: 400px; height: 400px; object-fit: cover; margin-right: 10px"
     />
-    {% endif %}
   </div>
+  {% endif %}
 </div>
 
 {% endblock content %} <br />

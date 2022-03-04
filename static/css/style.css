@@ -123,12 +123,12 @@ section {
 }
 
 .mynav {
-    background: #131313;
+    background: #0A5275;
 }
 
 .right_container {
     position: fixed;
-    background-color: #131313;
+    background-color: #0A5275;
     height: 100%;
     right: 0;
 }
@@ -179,9 +179,9 @@ section {
 }
 
 .dark-mode-on .main {
-    background-color: #1B1212;
+    background-color: #0A5275;
     color: white;
-    height: 100vh;
+    height: 100%;
 }
 
 .dark-mode-on input {
@@ -209,8 +209,11 @@ section {
 }
 
 .active {
-    background-color: #0a5275;
-    padding: 10px;
+    background-color: black;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 1rem;
+    border-radius: 10px 10px;
     color: white;
 }
 

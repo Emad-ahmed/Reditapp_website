@@ -39,7 +39,9 @@
             <a href="#"><i class="fas fa-calendar"></i>Events</a>
           </li>
           <li>
-            <a href="#"><i class="fas fa-question-circle"></i>About</a>
+            <a href="{% url 'change_password' %}"
+              ><i class="fas fa-question-circle"></i>Settings</a
+            >
           </li>
           <li>
             <a href="{% url 'share' %}"
@@ -53,6 +55,7 @@
       </div>
       <div class="right-side">
         <a class="logbtn" href="{% url 'logout' %}">Logout</a>
+
         {% if userprofile %}
         <a href="{% url 'profile'  %}"
           ><img
@@ -72,14 +75,14 @@
             aria-hidden="true"
           ></i
         ></a>
+
         {% endif %}
       </div>
     </nav>
 
-    <div class="container-fluid main">
+    <div class="container-fluid view">
       <div class="row">
         {% block content %} {% endblock content %}
-
         <div class="col-lg-3 right_container">
           <h1 class="text-center text-white mt-3">Your File</h1>
           <div class="mt-5 file_a ms-4">
@@ -90,7 +93,7 @@
             <a href="">Depratment Of Bangla</a>
             <a href="">Depratment Of Islamic Studies</a>
             <a href="">Depratment Of CSE</a>
-            <a href="">Depratment Of </a>
+            <a href="">Depratment Of Civil Engineering</a>
           </div>
         </div>
       </div>

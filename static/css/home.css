@@ -1,5 +1,5 @@
 .f-card {
-    background-color: #090909;
+    background-color: #1F1F1F;
     /*height:400px;*/
     width: 35rem;
     margin-left: 4rem;
@@ -9,7 +9,12 @@
     padding: 12px;
     margin-top: 3rem;
     box-shadow: 0 0 5px rgba(0, 0, 0, .30);
+    border-radius: 10px 10px 10px 10px;
     /* Not original, just a test */
+}
+
+* {
+    text-decoration: none;
 }
 
 .header {
@@ -17,11 +22,13 @@
 }
 
 .co-logo {
-    /*display:block;*/
-    float: left;
-    margin-right: 8px;
+    margin-left: -50px;
     width: 50px;
     height: 50px;
+}
+
+.posttext {
+    font-size: 1.3rem;
 }
 
 .co-name>a {
@@ -129,7 +136,7 @@
     font-size: 12px;
     font-weight: bold;
     line-height: 14px;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #646464;
     padding-top: 4px;
 }
 
@@ -159,15 +166,20 @@
 .newbtnlike {
     border: none;
     font-size: 1rem;
-    color: white;
-    background: #090909;
+    color: rgb(163, 163, 163);
+    background: #1F1F1F;
+}
+
+.fa-comment {
+    color: rgb(163, 163, 163);
 }
 
 .newbtnunlike {
     border: none;
-    color: tomato;
+    color: #3786F5;
     font-size: 1rem;
-    background: #090909;
+    background: #1F1F1F;
+    text-decoration: none;
 }
 
 .fa-comment {
@@ -200,4 +212,16 @@
     background: #eeb90a;
     font-size: 2rem;
     padding: 0.3rem;
+}
+
+.showview label {
+    width: 100rem;
+}
+
+.list-group-item {
+    border-radius: 10px 10px;
+    padding: 1.3rem;
+    border: 1px solid tomato;
+    color: black;
+    text-decoration: none;
 }

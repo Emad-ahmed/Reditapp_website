@@ -257,6 +257,18 @@ input.error {
     align-items: center;
 }
 
+.remember-forgot1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
 .remember {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -343,6 +355,7 @@ button:hover {
 .forgot-pass-form.active,
 .sign-up-form.active {
     display: block;
+    background: #0A5275;
 }
 
 .dark-mode-btn {

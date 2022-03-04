@@ -14,13 +14,15 @@
   s
 />
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
 <div class="col-lg-9 newshowcse">
-  <h1>Show CSE</h1>
+  <h1 class="text-center">Show CSE</h1>
+  <hr style="background: #0a5275" />
 
   <ul class="list-group">
     {% for showsubject in showcse %} {% if showsubject.isthattrue == True %}
     <li
-      class="list-group-item d-flex justify-content-between align-items-center semanquer mt-2"
+      class="list-group-item d-flex justify-content-between align-items-center semanquer mt-4"
     >
       <a href="{% url 'showdetail'  showsubject.id %}">
         {{showsubject.subject_name}}

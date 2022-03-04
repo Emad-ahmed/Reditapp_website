@@ -1,4 +1,4 @@
-from reditapp.views.home import HomeView, likepost, ChangePasswordView
+from reditapp.views.home import HomeView, likepost, ChangePasswordView, show_pdf
 
 
 from reditapp.views.signup import SignupView, ProfileView, change_password

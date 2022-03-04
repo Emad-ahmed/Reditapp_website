@@ -63,7 +63,7 @@
       class="w-75 h-50 ms-5"
     >
       {% csrf_token %}
-      <div class="mt-5">
+      <div class="mt-5 mb-0">
         {{fm.mypost}}
         <div class="imageuploaduser">{{fm.postimage}}</div>
         <div class="fileuploaduser">{{fm.postfile}}</div>
@@ -74,38 +74,52 @@
           <i
             class="fa fa-file-image-o me-4 ms-5 mt-1 text-white"
             aria-hidden="true"
+            style="border-radius: 10px 10px"
           ></i>
         </label>
         <label for="id_postfile">
-          <i class="fa fa-file text-white" aria-hidden="true"></i>
+          <i
+            class="fa fa-file text-white"
+            aria-hidden="true"
+            style="border-radius: 10px 10px"
+          ></i>
         </label>
       </div>
     </form>
   </div>
+  <hr style="margin-top: 2rem; background: #0a5275" />
   {% comment %} Card Start {% endcomment %} <br />
   {% for newuser in mypost %}
+
   <div class="f-card">
     <div class="header ps-5">
       <div class="options"><i class="fa fa-chevron-down"></i></div>
-      {% if newuser.myprofile %}
-      <img class="co-logo" src="{{newuser.myprofile.profile_photo.url}}" />
-      {% else %}
-      <img class="co-logo" src="" alt="{{newuser.user.name}}" />
-      {% endif %}
-
       <div class="co-name">
+        {% if newuser.myprofile %}
+        <img
+          class="co-logo"
+          src="{{newuser.myprofile.profile_photo.url}}"
+          class="ms-5"
+        />
+        {% else %}
+        <a class="co-logo" href="{% url 'profile'  %}">
+          <i class="fa fa-user-plus fa-2x text-white" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+
         <a href="#" class="text-white">{{newuser.user.name}}</a>
       </div>
       <div class="time"><a href="#">2hrs</a> · <i class="fa fa-globe"></i></div>
     </div>
     <div class="content">
-      <p class="text-white">{{newuser.mypost}}</p>
+      <p class="text-white posttext">{{newuser.mypost}}</p>
     </div>
 
     <div class="reference">
       {% if newuser.postimage %}
       <img class="reference-thumb" src="{{newuser.postimage.url}}" />
-      {% endif %}
+      {% endif %} {% if newuser.postfile %}
+      <a href="{% url 'show_pdf' newuser.id  %}">File</a> {% endif %}
     </div>
 
     <div class="social">
@@ -123,12 +137,21 @@
               <i class="fa fa-thumbs-up" aria-hidden="true"></i> like
               {{newuser.total_likes}}
             </button>
-
             {% endif %}
             <i class="fa fa-comment ms-3 mt-3 fa-1x"></i
-            ><span style="font-size: 1rem" class="spancomment"> Comment</span>
+            ><span
+              style="font-size: 0.9rem; color: rgb(163, 163, 163)"
+              class="spancomment"
+            >
+              Comment</span
+            >
             <i class="fa fa-share ms-3 mt-3 fa-1x"></i
-            ><span style="font-size: 1rem" class="spanshare"> Share</span>
+            ><span
+              style="font-size: 0.9rem; color: rgb(163, 163, 163)"
+              class="spanshare"
+            >
+              Share</span
+            >
           </span>
         </form>
       </div>

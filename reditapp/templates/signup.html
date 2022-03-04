@@ -38,7 +38,19 @@
       {{form.departMent.label_tag}} {{form.departMent}}
     </div>
     <div class="form-group">{{form.password.label_tag}} {{form.password}}</div>
-    <span><input type="checkbox" onclick="myFunction()" />Show Password</span>
+    <div class="form-group remember-forgot1">
+      <div class="remember">
+        <input
+          type="checkbox"
+          id="show"
+          name="bydefault"
+          value="yes"
+          class="form-checkbox"
+          onclick="myFunction()"
+        />
+        <label for="show">Show Password</label>
+      </div>
+    </div>
     <div class="form-group">
       <button type="submit">SIGN UP</button>
     </div>
